@@ -109,7 +109,9 @@ const MarkdownView: React.FC<Props> = ({ markdown }) => {
                   <Text style={styles.codeLanguage}>{blockLang}</Text>
                 </View>
               )}
-              <Text style={styles.codeText}>{blockCode}</Text>
+              <Text style={styles.codeText} selectable={true}>
+                {blockCode}
+              </Text>
             </View>
           );
           i++;
@@ -117,7 +119,7 @@ const MarkdownView: React.FC<Props> = ({ markdown }) => {
 
         case "code_inline":
           elements.push(
-            <Text key={i} style={styles.inlineCode}>
+            <Text key={i} style={styles.inlineCode} selectable={true}>
               {child.content}
             </Text>
           );
@@ -211,7 +213,9 @@ const MarkdownView: React.FC<Props> = ({ markdown }) => {
                 <Text style={styles.codeLanguage}>{token.info}</Text>
               </View>
             )}
-            <Text style={styles.codeText}>{token.content || ''}</Text>
+            <Text style={styles.codeText} selectable={true}>
+              {token.content || ''}
+            </Text>
           </View>
         );
         i++;
